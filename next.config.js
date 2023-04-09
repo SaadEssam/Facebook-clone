@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
-      "1000logos.net",
+      "img.icons8.com",
       "platform-lookaside.fbsbx.com",
       "firebasestorage.googleapis.com",
     ],

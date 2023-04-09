@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: [
       "img.icons8.com",
+      "i.postimg.cc",
       "platform-lookaside.fbsbx.com",
       "firebasestorage.googleapis.com",
     ],

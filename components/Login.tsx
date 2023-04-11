@@ -1,4 +1,4 @@
-import { signIn, SignInResponse  } from "next-auth/react";
+import { signIn, SignInResponse } from "next-auth/react";
 import Image from "next/image";
 
 function Login() {

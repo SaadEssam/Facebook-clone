@@ -1,9 +1,18 @@
+import { signIn, SignInResponse  } from "next-auth/react";
 import Image from "next/image";
 
 function Login() {
+  const handleSignIn = async (): Promise<SignInResponse> => {
+    const response = await signIn("facebook");
+    if (response !== undefined) {
+      return response;
+    } else {
+      throw new Error("Sign in failed");
+    }
+    // return response;
+  };
+  
   return (
-    // <div className="flex items-center justify-between w-full h-screen p-10 bg-blue-50">
-    // <div className="md:w-1/3 space-y-4 mb-8 ">
     <div className="flex sm:flex-col md:flex-row items-center justify-between w-full sm:h-full md:h-screen p-10 bg-blue-50">
       <div className="grid sm:place-items-center md:place-items-start sm:w-full md:w-1/3 space-y-4 p-8">
         <Image
@@ -20,7 +29,7 @@ function Login() {
       <div className="flex flex-col items-center justify-center w-full sm:w-5/12 sm:self-center">
         <div className="bg-white p-5 rounded-lg shadow-lg w-full sm:w-96">
           <form className="flex flex-col">
-            <input
+            {/* <input
               type="email"
               placeholder="Email address"
               className="mb-4 py-3 px-3 rounded-sm border-gray-300 border focus:outline-none"
@@ -31,9 +40,10 @@ function Login() {
               placeholder="Password"
               className="mb-4 py-3 px-3 rounded-sm border-gray-300 border focus:outline-none"
               required
-            />
+            /> */}
             <button
-              type="submit"
+              type="button"
+              onClick={handleSignIn}
               className="py-3 px-3 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-500 focus:outline-none"
             >
               Log In

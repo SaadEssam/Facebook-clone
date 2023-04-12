@@ -21,7 +21,7 @@ function SidebarRow({ src, Icon, title }: RowProps) {
         />
       )}
       {Icon && <Icon className="h-8 w-8" />}
-      <p className="hidden sm:inline-flex font-medium">{title}</p>
+      <p className="hidden sm:inline-flex font-medium font-poppins">{title}</p>
     </div>
   );
 }

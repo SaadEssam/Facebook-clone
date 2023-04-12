@@ -28,7 +28,7 @@ function Header() {
           <AiOutlineSearch className="h-6 text-gray-500" size="1.5rem" />
           <input
             type="text"
-            className="hidden md:inline-flex ml-2 items-center bg-transparent focus:outline-none placeholder-gray-500 flex-shrink"
+            className="hidden md:inline-flex ml-2 items-center bg-transparent focus:outline-none placeholder-gray-400 flex-shrink font-poppins font-medium"
             placeholder="Search Facebook"
           />
         </div>

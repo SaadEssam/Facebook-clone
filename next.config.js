@@ -5,6 +5,7 @@ const nextConfig = {
     domains: [
       "img.icons8.com",
       "i.postimg.cc",
+      "static.xx.fbcdn.net",
       "platform-lookaside.fbsbx.com",
       "firebasestorage.googleapis.com",
     ],

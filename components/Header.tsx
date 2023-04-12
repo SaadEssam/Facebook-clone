@@ -66,7 +66,7 @@ function Header() {
               signOut();
             }}
             alt="profile picture"
-            className="rounded-full cursor-pointer"
+            className="rounded-full cursor-pointer border-solid border-2 border-blue-500"
             src={session.user.image ?? ""}
             width="40"
             height="40"

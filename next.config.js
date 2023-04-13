@@ -5,6 +5,8 @@ const nextConfig = {
     domains: [
       "img.icons8.com",
       "i.postimg.cc",
+      "images.unsplash.com",
+      "pbs.twimg.com",
       "static.xx.fbcdn.net",
       "platform-lookaside.fbsbx.com",
       "firebasestorage.googleapis.com",
@@ -13,3 +15,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+

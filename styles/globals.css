@@ -11,4 +11,7 @@
   .svg-icon {
     @apply text-gray-700 group-hover:text-blue-700 fill-current;
   }
+  .inputIcon {
+    @apply flex items-center space-x-1 hover:bg-gray-100 flex-grow justify-center p-2 rounded-xl cursor-pointer;
+  }
 }

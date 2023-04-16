@@ -71,7 +71,7 @@ function CreatePost() {
             {/* dialog overlay  */}
             <Dialog.Overlay className="fixed inset-0 bg-gray-700 opacity-30" />
             {/* dialog card  */}
-            <div className="relative bg-white w-96 rounded-lg">
+            <div className="relative bg-white w-500 rounded-lg">
               {/* dialog header  */}
               <div className="flex justify-center relative border-b">
                 {/* dialog title  */}
@@ -101,7 +101,7 @@ function CreatePost() {
                     layout="fixed"
                   />
                   <div>
-                    <h6 className="font-medium text-sm">
+                    <h6 className="font-medium text-md">
                       {session?.user?.name}
                     </h6>
                     {/* author friends dropdown  */}
@@ -129,25 +129,26 @@ function CreatePost() {
                       <img
                         className="h-9 cursor-pointer"
                         src="https://www.facebook.com/images/composer/SATP_Aa_square-2x.png"
-                        alt="image pallete"
+                        alt="image palette"
                       />
                     </div>
                     <div>
-                      <HiOutlineEmojiHappy className="h-7 w-7 text-gray-500 cursor-pointer" />
+                      <HiOutlineEmojiHappy className="h-7 w-7 text-gray-500 hover:text-gray-400 cursor-pointer" />
                     </div>
                   </div>
                   <div className="flex items-center justify-between border border-gray-100 rounded-lg p-3 mt-3">
                     <div>
-                      <h2>Add to your post</h2>
+                      <h2 className="font-small text-gray-700">
+                        Add to your post
+                      </h2>
                     </div>
                     <div className="flex items-center">
-                      <FaVideo className="h-4 w-4 text-red-500 mr-2 cursor-pointer" />
-                      <HiLocationMarker className="h-4 w-4 text-red-500 mr-2 cursor-pointer" />
-                      <HiFlag className="h-4 w-4 text-sky-500 mr-2 cursor-pointer" />
-                      <FaPhotoVideo className="h-4 w-4 text-green-500 mr-2 cursor-pointer" />
-                      <AiFillTag className="h-4 w-4 text-blue-500 mr-2 cursor-pointer" />
-                      <BiHappy className="h-4 w-4 text-yellow-500 mr-2 cursor-pointer" />
-                      <MdMoreHoriz className="h-4 w-4 text-gray-500 mr-2 cursor-pointer" />
+                      <FaPhotoVideo className="h-5 w-5 text-green-500 hover:text-green-400 mr-2 cursor-pointer" />
+                      <AiFillTag className="h-5 w-5 text-blue-500 hover:text-blue-400 mr-2 cursor-pointer" />
+                      <BiHappy className="h-5 w-5 text-yellow-500 hover:text-yellow-400 mr-2 cursor-pointer" />
+                      <HiLocationMarker className="h-5 w-5 text-red-500 hover:text-red-400 mr-2 cursor-pointer" />
+                      <HiFlag className="h-5 w-5 text-sky-500 hover:text-sky-400 mr-2 cursor-pointer" />
+                      <MdMoreHoriz className="h-5 w-5 text-gray-500 hover:text-gray-400 mr-2 cursor-pointer" />
                     </div>
                   </div>
                 </div>

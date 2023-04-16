@@ -1,4 +1,4 @@
-import firebase from "firebase";
+// import firebase from "firebase";
 import { initializeApp } from "firebase/app";
 
 import "firebase/storage";
@@ -14,11 +14,11 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const app = !firebase.apps.length
-  ? firebase.initializeApp(!firebaseConfig)
-  : firebase.app();
+// const app = !firebase.apps.length
+//   ? firebase.initializeApp(!firebaseConfig)
+//   : firebase.app();
 
 const db = getFirestore(app);
 const storage = getStorage();

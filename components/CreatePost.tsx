@@ -2,19 +2,43 @@ import { useSession } from "next-auth/react";
 import { Session } from "next-auth";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Dialog } from "@headlessui/react";
 
-import { AiOutlineClose, AiFillTag } from "react-icons/ai";
-import { HiOutlineEmojiHappy, HiLocationMarker, HiFlag } from "react-icons/hi";
 import { BiHappy } from "react-icons/bi";
 import { MdMoreHoriz } from "react-icons/md";
 import { FaPhotoVideo, FaVideo } from "react-icons/fa";
+import { AiOutlineClose, AiFillTag } from "react-icons/ai";
 import { BsPeopleFill, BsFillCaretDownFill } from "react-icons/bs";
+import { HiOutlineEmojiHappy, HiLocationMarker, HiFlag } from "react-icons/hi";
+
+import { db } from "@/firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { serverTimestamp } from "firebase/firestore";
 
 function CreatePost() {
   const [isOpen, setIsOpen] = useState(false);
+  const inputRef = useRef(null);
+  const sendPost = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (!inputRef.current?.value) return;
+    
+    try {
+      const docRef = await addDoc(collection(db, "posts"), {
+        message: inputRef.current.value,
+        name: session?.user?.name,
+        email: session?.user?.email,
+        image: session?.user?.image,
+        timestamp: serverTimestamp(),
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e: any) {
+      console.error("Error adding document: ", e);
+    }
 
+    inputRef.current.value = "";
+  }
   const { data: session }: { data: Session | null | undefined } = useSession();
   return (
     <div className="bg-white p-2 rounded-lg shadow-md text-gray-500 font-medium mt-6">
@@ -119,8 +143,9 @@ function CreatePost() {
                   <div className="mb-4">
                     <textarea
                       className="w-full placeholder-gray-500 text-lg focus:outline-none"
-                      rows={6}
+                      rows={4}
                       placeholder={`What's on your mind, ${session?.user?.name}?`}
+                      ref={inputRef}
                     />
                   </div>
 
@@ -154,8 +179,10 @@ function CreatePost() {
                 </div>
                 <div className="my-2 px-4">
                   <button
+                    type="submit"
                     className="text-center w-full py-2 rounded-lg bg-blue-500 text-white"
-                    disabled
+                    onClick={sendPost}
+                    // disabled
                   >
                     Post
                   </button>

@@ -12,33 +12,66 @@ import { AiOutlineClose, AiFillTag } from "react-icons/ai";
 import { BsPeopleFill, BsFillCaretDownFill } from "react-icons/bs";
 import { HiOutlineEmojiHappy, HiLocationMarker, HiFlag } from "react-icons/hi";
 
-import { db } from "@/firebase";
+import { db, storage } from "@/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
+import { doc, Timestamp, updateDoc } from "firebase/firestore";
+import { getDownloadURL, ref, uploadString } from "firebase/storage";
 
 function CreatePost() {
   const [isOpen, setIsOpen] = useState(false);
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const filePickerRef = useRef(null);
+  const [imageToPost, setImageToPost] = useState(null);
+
   const sendPost = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    if (!inputRef.current?.value) return;
-    
+
+    if (typeof inputRef.current?.value !== "string") return;
+
     try {
       const docRef = await addDoc(collection(db, "posts"), {
         message: inputRef.current.value,
-        name: session?.user?.name,
-        email: session?.user?.email,
-        image: session?.user?.image,
+        name: session?.user?.name || "",
+        email: session?.user?.email || "",
+        image: session?.user?.image || "",
         timestamp: serverTimestamp(),
       });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e: any) {
-      console.error("Error adding document: ", e);
-    }
 
+      if (imageToPost) {
+        const imageRef = ref(storage, `posts/${docRef.id}`);
+
+        await uploadString(imageRef, imageToPost as string, "data_url").then(
+          async (snapshot) => {
+            const downloadUrl = await getDownloadURL(imageRef);
+            await updateDoc(doc(db, "posts", docRef.id), {
+              image: downloadUrl,
+            });
+          }
+        );
+      } else {
+        console.log("No Image");
+      }
+    } catch (error) {
+      console.log(error);
+    }
     inputRef.current.value = "";
-  }
+  };
+
+  const addImageToPost = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const reader = new FileReader();
+    if (e.target.files && e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+    reader.onload = (readerEvent) => {
+      setImageToPost(readerEvent.target.result as string);
+    };
+  };
+
+  const removeImage = () => {
+    setImageToPost(null);
+  };
+
   const { data: session }: { data: Session | null | undefined } = useSession();
   return (
     <div className="bg-white p-2 rounded-lg shadow-md text-gray-500 font-medium mt-6">
@@ -74,9 +107,18 @@ function CreatePost() {
           <p className="text-xs sm:text-sm xl:text-base">Live Video</p>
         </div>
 
-        <div className="inputIcon">
+        <div
+          onClick={() => filePickerRef.current.click()}
+          className="inputIcon"
+        >
           <FaPhotoVideo className="h-7 w-7 text-green-500" />
           <p className="text-xs sm:text-sm xl:text-base">Photo/Video</p>
+          <input
+            type="file"
+            onChange={addImageToPost}
+            ref={filePickerRef}
+            hidden
+          />
         </div>
 
         <div className="inputIcon">
@@ -168,12 +210,12 @@ function CreatePost() {
                       </h2>
                     </div>
                     <div className="flex items-center">
-                      <FaPhotoVideo className="h-5 w-5 text-green-500 hover:text-green-400 mr-2 cursor-pointer" />
-                      <AiFillTag className="h-5 w-5 text-blue-500 hover:text-blue-400 mr-2 cursor-pointer" />
-                      <BiHappy className="h-5 w-5 text-yellow-500 hover:text-yellow-400 mr-2 cursor-pointer" />
-                      <HiLocationMarker className="h-5 w-5 text-red-500 hover:text-red-400 mr-2 cursor-pointer" />
-                      <HiFlag className="h-5 w-5 text-sky-500 hover:text-sky-400 mr-2 cursor-pointer" />
-                      <MdMoreHoriz className="h-5 w-5 text-gray-500 hover:text-gray-400 mr-2 cursor-pointer" />
+                      <FaPhotoVideo className="addToPostIcon text-green-500 hover:text-green-400" />
+                      <AiFillTag className="addToPostIcon text-blue-500 hover:text-blue-400" />
+                      <BiHappy className="addToPostIcon text-yellow-500 hover:text-yellow-400" />
+                      <HiLocationMarker className="addToPostIcon text-red-500 hover:text-red-400" />
+                      <HiFlag className="addToPostIcon text-sky-500 hover:text-sky-400" />
+                      <MdMoreHoriz className="addToPostIcon text-gray-500 hover:text-gray-400" />
                     </div>
                   </div>
                 </div>
@@ -192,6 +234,16 @@ function CreatePost() {
           </div>
         </Dialog>
       </div>
+
+      {imageToPost && (
+        <div
+          onClick={removeImage}
+          className="flex flex-col filter hover:brightness-110 transition duration-150 transform hover:scale-105 cursor-pointer"
+        >
+          <img src={imageToPost} alt="" className="h-10 object-contain" />
+          <p className="text-xs text-red-500 text-center">Remove</p>
+        </div>
+      )}
     </div>
   );
 }

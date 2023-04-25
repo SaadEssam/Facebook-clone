@@ -1,6 +1,5 @@
 import { useSession } from "next-auth/react";
 import { Session } from "next-auth";
-
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { Dialog } from "@headlessui/react";
@@ -13,9 +12,14 @@ import { BsPeopleFill, BsFillCaretDownFill } from "react-icons/bs";
 import { HiOutlineEmojiHappy, HiLocationMarker, HiFlag } from "react-icons/hi";
 
 import { db, storage } from "@/firebase";
-import { collection, addDoc } from "firebase/firestore";
-import { serverTimestamp } from "firebase/firestore";
-import { doc, Timestamp, updateDoc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  serverTimestamp,
+  doc,
+  Timestamp,
+  updateDoc,
+} from "firebase/firestore";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 
 function CreatePost() {

@@ -188,6 +188,7 @@ function CreatePost() {
                 <div className="px-4 py-2">
                   <div className="mb-4">
                     <textarea
+                      autoFocus
                       className="w-full placeholder-gray-500 text-lg focus:outline-none"
                       rows={4}
                       placeholder={`What's on your mind, ${session?.user?.name}?`}

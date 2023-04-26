@@ -1,5 +1,6 @@
 import Stories from "./Stories";
 import CreatePost from "./CreatePost";
+import Posts from "./Posts";
 
 function Feed() {
   return (
@@ -7,7 +8,7 @@ function Feed() {
       <div className="mx-auto max-w-md md:max-w-lg lg:max-w-2xl">
         <Stories />
         <CreatePost />
-        {/* Posts */}
+        <Posts />
       </div>
     </div>
   );

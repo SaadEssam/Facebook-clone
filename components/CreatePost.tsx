@@ -59,7 +59,9 @@ function CreatePost() {
     } catch (error) {
       console.log(error);
     }
-    inputRef.current.value = "";
+    if (inputRef.current) {
+      inputRef.current.value = "";
+    }
   };
 
   const addImageToPost = (e: React.ChangeEvent<HTMLInputElement>) => {

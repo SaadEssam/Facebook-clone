@@ -54,9 +54,9 @@ function Post(props: PostProps) {
       </div>
 
       {props.image && (
-      <div className="relative h-56 md:h-96 bg-white">
-        <Image src={props.image} alt="" objectFit="cover" layout="fill" />
-      </div>
+        <div className="relative h-56 md:h-96 bg-white">
+          <Image src={props.image} alt="" objectFit="cover" layout="fill" />
+        </div>
       )}
 
       <div className="flex justify-between items-center rounded-b-2xl bg-white shadow-md text-gray-400 border-t">

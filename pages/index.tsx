@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Login from "@/components/Login";
 import Sidebar from "@/components/Sidebar";
 import Feed from "@/components/Feed";
+import Widgets from "@/components/Widgets";
 
 interface HomeProps {
   session: any;
@@ -24,7 +25,8 @@ export default function Home({ session }: HomeProps) {
       <Header />
       <main className="flex">
         <Sidebar />
-        <Feed/>
+        <Feed />
+        <Widgets />
       </main>
     </div>
   );

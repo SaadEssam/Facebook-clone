@@ -17,4 +17,7 @@
   .addToPostIcon {
     @apply h-5 w-5 mr-2 cursor-pointer;
   }
+  .contactsIcon {
+    @apply w-8 h-8 grid place-items-center text-xl rounded-full cursor-pointer hover:text-gray-600;
+  }
 }

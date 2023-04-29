@@ -17,7 +17,7 @@ interface PostProps {
   image: string;
 }
 
-function Post(props: PostProps) {
+function Post({ name, message, email, timestamp, image }: PostProps) {
   const { data: session } = useSession();
 
   return (
@@ -33,12 +33,10 @@ function Post(props: PostProps) {
               alt="profile picture"
             />
             <div>
-              <p className="font-medium font-poppins cursor-pointer">
-                {props.name}
-              </p>
+              <p className="font-medium font-poppins cursor-pointer">{name}</p>
               <div className="flex items-center text-xs">
                 <p className="text-gray-400 font-poppins cursor-pointer hover:underline underline-offset-1 hover:text-gray-500">
-                  {moment(new Date(props.timestamp?.seconds * 1000)).fromNow()}{" "}
+                  {moment(new Date(timestamp?.seconds * 1000)).fromNow()}{" "}
                 </p>
                 <BsDot className="text-gray-400" />
                 <GiEarthAmerica className="text-gray-400 cursor-pointer" />
@@ -50,12 +48,12 @@ function Post(props: PostProps) {
           </div>
         </div>
 
-        <p className="pt-4 font-poppins">{props.message}</p>
+        <p className="pt-4 font-poppins">{message}</p>
       </div>
 
-      {props.image && (
+      {image && (
         <div className="relative h-56 md:h-96 bg-white">
-          <Image src={props.image} alt="" objectFit="cover" layout="fill" />
+          <Image src={image} alt="" objectFit="cover" layout="fill" />
         </div>
       )}
 

@@ -36,7 +36,7 @@ function Header() {
 
       {/* Center */}
       <div className="flex justify-center flex-grow">
-        <div className="flex space-x-6 md:space-x-2">
+        <div className="flex space-x-6 md:space-x-2 xl:mr-36">
           <HeaderIcons Icon={HiHome} active={true} />
           <HeaderIcons Icon={BsPlayBtn} active={false} />
           <HeaderIcons Icon={BiStore} active={false} />

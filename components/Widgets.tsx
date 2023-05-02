@@ -2,7 +2,7 @@ import React from "react";
 import { FaVideo } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdMoreHoriz } from "react-icons/md";
-import { contact } from "@/constants/Contacts";
+import { contact } from "@/constants/contacts";
 import Contact from "./Contact";
 
 function Widget() {

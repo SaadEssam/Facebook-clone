@@ -9,10 +9,10 @@ interface StoryProps {
 
 function StoryCard({ name, src, profile }: StoryProps) {
   return (
-    <div className="relative h-14 w-14 md:h-20 md:w-20 lg:h-56 lg:w-32 cursor-pointer overflow-x p-3 transition duration-200 transform ease-in hover:scale-105 hover:animate-pulse">
+    <div className="overflow-x relative h-14 w-14 transform cursor-pointer p-3 transition duration-200 ease-in hover:scale-105 hover:animate-pulse md:h-20 md:w-20 lg:h-56 lg:w-32">
       <Image
         alt=""
-        className="absolute opacity-0 lg:opacity-100 rounded-full z-50 top-5 border-2 border-blue-600 shadow-md"
+        className="absolute top-5 z-50 rounded-full border-2 border-blue-600 opacity-0 shadow-md lg:opacity-100"
         src={profile}
         width={40}
         height={40}
@@ -21,11 +21,11 @@ function StoryCard({ name, src, profile }: StoryProps) {
       />
       <Image
         alt=""
-        className="object-cover filter brightness-75 rounded-full lg:rounded-xl sm:border-2 sm:border-blue-600 p-0.5 lg:border-none"
+        className="rounded-full object-cover p-0.5 brightness-75 filter sm:border-2 sm:border-blue-600 lg:rounded-xl lg:border-none"
         src={src}
         layout="fill"
       />
-      <h1 className="absolute opacity-0 lg:opacity-100 z-50 bottom-3  font-normal font-poppins text-gray-200">
+      <h1 className="absolute bottom-3 z-50 font-poppins font-normal  text-gray-200 opacity-0 lg:opacity-100">
         {name}
       </h1>
     </div>

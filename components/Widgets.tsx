@@ -7,20 +7,20 @@ import Contact from "./Contact";
 
 function Widget() {
   return (
-    <div className="w-1/5 pt-16 h-full hidden xl:block px-4 fixed top-0 right-0 font-poppins overflow-scroll scrollbar-hide">
-      <div className="h-full mt-3">
+    <div className="fixed right-0 top-0 hidden h-full w-1/5 overflow-scroll px-4 pt-16 font-poppins scrollbar-hide xl:block">
+      <div className="mt-3 h-full">
         <>
-          <div className="flex justify-between items-center px-0 pt-4">
-            <span className="font-semibold text-gray-500 text-lg ">
+          <div className="flex items-center justify-between px-0 pt-4">
+            <span className="text-lg font-semibold text-gray-500 ">
               Sponsored
             </span>
           </div>
           <div className="mt-2">
-            <div className="flex items-center space-x-4 rounded-lg transition-all cursor-pointer">
+            <div className="flex cursor-pointer items-center space-x-4 rounded-lg transition-all">
               <img
                 src="https://img.icons8.com/fluency/48/null/meta.png"
                 alt="Sponsored logo"
-                className="w-8 h-8 rounded-full"
+                className="h-8 w-8 rounded-full"
               />
               <div className="">
                 <span className="font-medium">Meta</span>
@@ -28,7 +28,7 @@ function Widget() {
             </div>
           </div>
           <div className="cursor-pointer">
-            <div className="flex-1 space-x-2 mt-2">
+            <div className="mt-2 flex-1 space-x-2">
               <p className="text-sm text-gray-600">
                 Facebook's parent company has changed its name to Meta and
                 updated its logo to...
@@ -43,15 +43,15 @@ function Widget() {
             </div>
           </div>
 
-          <div className="border-b border-gray-300 mb-3"></div>
+          <div className="mb-3 border-b border-gray-300"></div>
 
           <div>
-            <div className="flex justify-start font-semibold text-lg text-gray-500">
+            <div className="flex justify-start text-lg font-semibold text-gray-500">
               <h1>Birthdays</h1>
             </div>
-            <div className="flex justify-between mt-3 cursor-pointer px-2 py-2 rounded-md">
+            <div className="mt-3 flex cursor-pointer justify-between rounded-md px-2 py-2">
               <img
-                className="w-8 h-8 mr-2"
+                className="mr-2 h-8 w-8"
                 src="https://i.postimg.cc/jdr7fwV8/gift.png"
                 alt=""
               />
@@ -64,10 +64,10 @@ function Widget() {
           </div>
         </>
 
-        <div className="border-b border-gray-300 mb-3"></div>
+        <div className="mb-3 border-b border-gray-300"></div>
 
-        <div className="flex justify-between items-center text-gray-500">
-          <span className="font-semibold text-lg">Contacts</span>
+        <div className="flex items-center justify-between text-gray-500">
+          <span className="text-lg font-semibold">Contacts</span>
           <div className="flex space-x-1">
             <div className="contactsIcon">
               <FaVideo />

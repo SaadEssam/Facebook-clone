@@ -9,7 +9,7 @@ interface RowProps {
 
 function SidebarRow({ src, Icon, title }: RowProps) {
   return (
-    <div className="flex items-center space-x-2 p-4 hover:bg-gray-200 rounded-xl cursor-pointer">
+    <div className="flex cursor-pointer items-center space-x-2 rounded-xl p-4 hover:bg-gray-200">
       {src && (
         <Image
           alt=""
@@ -21,7 +21,7 @@ function SidebarRow({ src, Icon, title }: RowProps) {
         />
       )}
       {Icon && <Icon className="h-8 w-8" />}
-      <p className="hidden sm:inline-flex font-medium font-poppins">{title}</p>
+      <p className="hidden font-poppins font-medium sm:inline-flex">{title}</p>
     </div>
   );
 }

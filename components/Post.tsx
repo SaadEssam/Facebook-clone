@@ -22,29 +22,29 @@ function Post({ name, message, email, timestamp, image }: PostProps) {
 
   return (
     <div className="flex flex-col">
-      <div className="p-5 bg-white mt-5 rounded-t-2xl shadow-sm">
+      <div className="mt-5 rounded-t-2xl bg-white p-5 shadow-sm">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <img
-              className="rounded-full cursor-pointer"
+              className="cursor-pointer rounded-full"
               src={session?.user?.image ?? ""}
               width={40}
               height={40}
               alt="profile picture"
             />
             <div>
-              <p className="font-medium font-poppins cursor-pointer">{name}</p>
+              <p className="cursor-pointer font-poppins font-medium">{name}</p>
               <div className="flex items-center text-xs">
-                <p className="text-gray-400 font-poppins cursor-pointer hover:underline underline-offset-1 hover:text-gray-500">
+                <p className="cursor-pointer font-poppins text-gray-400 underline-offset-1 hover:text-gray-500 hover:underline">
                   {moment(new Date(timestamp?.seconds * 1000)).fromNow()}{" "}
                 </p>
                 <BsDot className="text-gray-400" />
-                <GiEarthAmerica className="text-gray-400 cursor-pointer" />
+                <GiEarthAmerica className="cursor-pointer text-gray-400" />
               </div>
             </div>
           </div>
           <div>
-            <MdMoreHoriz className="text-gray-600 text-2xl cursor-pointer hover:text-gray-800" />
+            <MdMoreHoriz className="cursor-pointer text-2xl text-gray-600 hover:text-gray-800" />
           </div>
         </div>
 
@@ -52,25 +52,25 @@ function Post({ name, message, email, timestamp, image }: PostProps) {
       </div>
 
       {image && (
-        <div className="relative h-56 md:h-96 bg-white">
+        <div className="relative h-56 bg-white md:h-96">
           <Image src={image} alt="" objectFit="cover" layout="fill" />
         </div>
       )}
 
-      <div className="flex justify-between items-center rounded-b-2xl bg-white shadow-md text-gray-400 border-t">
+      <div className="flex items-center justify-between rounded-b-2xl border-t bg-white text-gray-400 shadow-md">
         <div className="inputIcon rounded-none rounded-bl-2xl">
           <BiLike className="h-4" />
-          <p className="text-sm font-poppins sm:text-base">Like</p>
+          <p className="font-poppins text-sm sm:text-base">Like</p>
         </div>
 
         <div className="inputIcon rounded-none">
           <BiCommentDetail className="h-4" />
-          <p className="text-sm font-poppins sm:text-base">Comment</p>
+          <p className="font-poppins text-sm sm:text-base">Comment</p>
         </div>
 
         <div className="inputIcon rounded-none rounded-br-2xl">
           <BiShareAlt className="h-4" />
-          <p className="text-sm font-poppins sm:text-base">Share</p>
+          <p className="font-poppins text-sm sm:text-base">Share</p>
         </div>
       </div>
     </div>

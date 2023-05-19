@@ -5,9 +5,9 @@ interface Props {
 
 function HeaderIcons({ Icon, active }: Props) {
   return (
-    <div className="flex items-center cursor-pointer md:px-10 sm:h-14 md:hover:bg-gray-100 hover:border-b-4 active:border-b-4 border-blue-600 ease-in-out duration-200 rounded group">
+    <div className="group flex cursor-pointer items-center rounded border-blue-600 duration-200 ease-in-out hover:border-b-4 active:border-b-4 sm:h-14 md:px-10 md:hover:bg-gray-100">
       <Icon
-        className={`text-gray-600 h-5 text-center sm:h-7 mx-auto group-active:text-blue-600 ${
+        className={`mx-auto h-5 text-center text-gray-600 group-active:text-blue-600 sm:h-7 ${
           active && "text-blue-600"
         }`}
         size="1.5rem"

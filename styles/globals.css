@@ -6,18 +6,18 @@
 
 @layer components {
   .icon {
-    @apply hidden xl:inline-flex bg-gray-200 p-3 rounded-full cursor-pointer hover:bg-blue-100 ease-in-out duration-200;
+    @apply hidden cursor-pointer rounded-full bg-gray-200 p-3 duration-200 ease-in-out hover:bg-blue-100 xl:inline-flex;
   }
   .svg-icon {
-    @apply text-gray-700 group-hover:text-blue-700 fill-current;
+    @apply fill-current text-gray-700 group-hover:text-blue-700;
   }
   .inputIcon {
-    @apply flex items-center space-x-1 hover:bg-gray-100 flex-grow justify-center p-2 rounded-xl cursor-pointer;
+    @apply flex flex-grow cursor-pointer items-center justify-center space-x-1 rounded-xl p-2 hover:bg-gray-100;
   }
   .addToPostIcon {
-    @apply h-5 w-5 mr-2 cursor-pointer;
+    @apply mr-2 h-5 w-5 cursor-pointer;
   }
   .contactsIcon {
-    @apply w-8 h-8 grid place-items-center text-xl rounded-full cursor-pointer hover:text-gray-600;
+    @apply grid h-8 w-8 cursor-pointer place-items-center rounded-full text-xl hover:text-gray-600;
   }
 }

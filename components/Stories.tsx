@@ -5,7 +5,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 function Stories() {
   return (
     <>
-      <div className="flex justify-center relative space-x-3 mx-auto">
+      <div className="relative mx-auto flex justify-center space-x-3">
         {stories.map((story) => (
           <StoryCard
             key={story.src}
@@ -14,7 +14,7 @@ function Stories() {
             profile={story.profile}
           />
         ))}
-        <div className="w-12 h-12 rounded-full hidden lg:grid place-items-center text-4xl bg-white absolute -right-6 top-1/2 transform -translate-y-1/2 border border-gray-200 cursor-pointer hover:bg-gray-100 shadow text-gray-500">
+        <div className="absolute -right-6 top-1/2 hidden h-12 w-12 -translate-y-1/2 transform cursor-pointer place-items-center rounded-full border border-gray-200 bg-white text-4xl text-gray-500 shadow hover:bg-gray-100 lg:grid">
           <MdOutlineKeyboardArrowRight />
         </div>
       </div>

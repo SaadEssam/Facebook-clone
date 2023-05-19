@@ -9,10 +9,10 @@ function Sidebar() {
 
   return (
     <>
-      <div className="p-2 mt-5 max-w-[600px] xl:min-w-[300px]">
+      <div className="mt-5 max-w-[600px] p-2 xl:min-w-[300px]">
         <div className="flex items-center justify-between space-x-2">
-          <h1 className="font-bold text-2xl px-4 font-poppins">Home</h1>
-          <h2 className="text-blue-600 cursor-pointer hover:underline font-poppins">
+          <h1 className="px-4 font-poppins text-2xl font-bold">Home</h1>
+          <h2 className="cursor-pointer font-poppins text-blue-600 hover:underline">
             Create
           </h2>
         </div>
@@ -23,7 +23,7 @@ function Sidebar() {
               title={session.user.name!}
             />
           )}
-          <hr className="h-0.5 my-1 bg-gray-300" />
+          <hr className="my-1 h-0.5 bg-gray-300" />
           <SidebarRow
             src="https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/0cF-NVaaM2z.png"
             title="Events"

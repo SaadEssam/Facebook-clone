@@ -14,7 +14,7 @@ function Header() {
   const { data: session } = useSession();
 
   return (
-    <div className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
+    <div className="sticky top-0 z-50 flex items-center bg-white p-2 shadow-md lg:px-5">
       {/* Leftside */}
       <div className="flex items-center">
         <Image
@@ -24,18 +24,18 @@ function Header() {
           height={40}
           layout="fixed"
         />
-        <div className="flex ml-2 items-center rounded-full bg-gray-100 p-2">
+        <div className="ml-2 flex items-center rounded-full bg-gray-100 p-2">
           <AiOutlineSearch className="h-6 text-gray-500" size="1.5rem" />
           <input
             type="text"
-            className="hidden md:inline-flex ml-2 items-center bg-transparent focus:outline-none placeholder-gray-400 flex-shrink font-poppins font-medium"
+            className="ml-2 hidden flex-shrink items-center bg-transparent font-poppins font-medium placeholder-gray-400 focus:outline-none md:inline-flex"
             placeholder="Search Facebook"
           />
         </div>
       </div>
 
       {/* Center */}
-      <div className="flex justify-center flex-grow">
+      <div className="flex flex-grow justify-center">
         <div className="flex space-x-6 md:space-x-2 xl:mr-36">
           <HeaderIcons Icon={HiHome} active={true} />
           <HeaderIcons Icon={BsPlayBtn} active={false} />
@@ -46,7 +46,7 @@ function Header() {
       </div>
 
       {/* Rightside */}
-      <div className="flex items-center sm:space-x-2 justify-end">
+      <div className="flex items-center justify-end sm:space-x-2">
         <div className="icon group">
           <svg width="20" height="20" viewBox="0 0 50 50" className="svg-icon">
             <path d="M 25 2 C 12.300781 2 2 11.601563 2 23.5 C 2 29.800781 4.898438 35.699219 10 39.800781 L 10 48.601563 L 18.601563 44.101563 C 20.699219 44.699219 22.800781 44.898438 25 44.898438 C 37.699219 44.898438 48 35.300781 48 23.398438 C 48 11.601563 37.699219 2 25 2 Z M 27.300781 30.601563 L 21.5 24.398438 L 10.699219 30.5 L 22.699219 17.800781 L 28.601563 23.699219 L 39.101563 17.800781 Z"></path>
@@ -66,7 +66,7 @@ function Header() {
               signOut();
             }}
             alt="profile picture"
-            className="rounded-full cursor-pointer border-solid border-2 border-blue-500"
+            className="cursor-pointer rounded-full border-2 border-solid border-blue-500"
             src={session.user.image ?? ""}
             width="40"
             height="40"

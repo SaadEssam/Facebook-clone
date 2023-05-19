@@ -6,12 +6,12 @@ import Link from "next/link";
 function Error() {
   return (
     <>
-      <div className="h-screen bg-gray-100 overflow-hidden">
+      <div className="h-screen overflow-hidden bg-gray-100">
         <Header />
         <main className="flex">
           <Sidebar />
-          <div className="flex flex-col items-center justify-center h-screen mx-auto font-poppins">
-            <div className="flex flex-col items-center max-w-lg space-y-2">
+          <div className="mx-auto flex h-screen flex-col items-center justify-center font-poppins">
+            <div className="flex max-w-lg flex-col items-center space-y-2">
               <Image
                 alt=""
                 src="https://www.facebook.com/images/comet/empty_states_icons/permissions/permissions_dark_mode.svg"
@@ -22,21 +22,21 @@ function Error() {
               <h1 className="text-xl font-bold">
                 This content isn't available right now
               </h1>
-              <p className="text-gray-500 text-center w-70">
+              <p className="w-70 text-center text-gray-500">
                 When this happens, it's usually because the owner only shared it
                 with a small group of people, changed who can see it or it's
                 been deleted.
               </p>
               <button
                 type="button"
-                className="py-2 px-6 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-500 focus:outline-none"
+                className="rounded-md bg-blue-600 px-6 py-2 font-medium text-white hover:bg-blue-500 focus:outline-none"
               >
                 Go to News Feed
               </button>
-              <Link href="/" className="text-blue-600 font-medium">
+              <Link href="/" className="font-medium text-blue-600">
                 Go Back
               </Link>
-              <Link href="#" className="text-blue-600 font-medium">
+              <Link href="#" className="font-medium text-blue-600">
                 Visit Help Center
               </Link>
             </div>
